@@ -1,0 +1,94 @@
+"""Compatibility import path for preprocessing builders."""
+
+from pathlib import Path
+import sys
+
+try:
+    from s2ge.data.preprocess._builders.factory import PREPROCESS_BUILDERS, get_preprocess_builder
+    from s2ge.data.preprocess._builders.grbench import (
+        GRBENCH_PERSISTED_SEED_NODES,
+        GRBENCH_TEXT_MODE_MAX_NODES,
+        _build_persisted_seed_nodes,
+        _build_persisted_seed_nodes_from_degree,
+        _build_undirected_grbench_graph,
+        _compute_infection_proximity,
+        _count_csv_rows,
+        _grbench_light_node_features,
+        _load_cached_grbench_tables,
+        _load_edge_arrays_from_csv,
+        _load_grbench_stream_info_from_cache,
+        _load_node_type_codes,
+        _materialize_grbench_text_backend,
+        _normalize_grbench_neighbor_type,
+        _parse_grbench_graph_path,
+        _scan_nodes_csv_metadata,
+        _select_infection_anchor_nodes,
+        _select_infection_anchor_nodes_from_degree,
+        _select_topk_from_degree,
+        _stream_encode_text_column,
+        _stream_grbench_nodes,
+        _write_grbench_graph_tables_streaming,
+        build_grbench,
+        refresh_grbench_seed_nodes,
+    )
+except ModuleNotFoundError:
+    src_root = Path(__file__).resolve().parents[3]
+    src_root_str = str(src_root)
+    if src_root_str not in sys.path:
+        sys.path.insert(0, src_root_str)
+    from s2ge.data.preprocess._builders.factory import PREPROCESS_BUILDERS, get_preprocess_builder
+    from s2ge.data.preprocess._builders.grbench import (
+        GRBENCH_PERSISTED_SEED_NODES,
+        GRBENCH_TEXT_MODE_MAX_NODES,
+        _build_persisted_seed_nodes,
+        _build_persisted_seed_nodes_from_degree,
+        _build_undirected_grbench_graph,
+        _compute_infection_proximity,
+        _count_csv_rows,
+        _grbench_light_node_features,
+        _load_cached_grbench_tables,
+        _load_edge_arrays_from_csv,
+        _load_grbench_stream_info_from_cache,
+        _load_node_type_codes,
+        _materialize_grbench_text_backend,
+        _normalize_grbench_neighbor_type,
+        _parse_grbench_graph_path,
+        _scan_nodes_csv_metadata,
+        _select_infection_anchor_nodes,
+        _select_infection_anchor_nodes_from_degree,
+        _select_topk_from_degree,
+        _stream_encode_text_column,
+        _stream_grbench_nodes,
+        _write_grbench_graph_tables_streaming,
+        build_grbench,
+        refresh_grbench_seed_nodes,
+    )
+
+__all__ = [
+    "PREPROCESS_BUILDERS",
+    "get_preprocess_builder",
+    "GRBENCH_PERSISTED_SEED_NODES",
+    "GRBENCH_TEXT_MODE_MAX_NODES",
+    "_stream_grbench_nodes",
+    "_normalize_grbench_neighbor_type",
+    "_parse_grbench_graph_path",
+    "_write_grbench_graph_tables_streaming",
+    "_grbench_light_node_features",
+    "_load_cached_grbench_tables",
+    "_count_csv_rows",
+    "_load_grbench_stream_info_from_cache",
+    "_scan_nodes_csv_metadata",
+    "_load_node_type_codes",
+    "_load_edge_arrays_from_csv",
+    "_build_persisted_seed_nodes",
+    "_select_topk_from_degree",
+    "_build_persisted_seed_nodes_from_degree",
+    "_build_undirected_grbench_graph",
+    "_select_infection_anchor_nodes",
+    "_select_infection_anchor_nodes_from_degree",
+    "_compute_infection_proximity",
+    "_stream_encode_text_column",
+    "_materialize_grbench_text_backend",
+    "build_grbench",
+    "refresh_grbench_seed_nodes",
+]

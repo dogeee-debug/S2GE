@@ -1,0 +1,4 @@
+-r requirements-preprocess.txt
+pytest
+gensim
+# Install torch-scatter from the PyG wheel index matching the local Torch build.

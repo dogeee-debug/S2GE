@@ -1,0 +1,46 @@
+# Matched HopQA adaptation recipe for LLaGA.
+# Third-party source code is not vendored in this release.
+
+method: LLaGA
+external_repo: baselines/LLaGA-master
+dataset: grbench_hopqa
+task: hopqa_shortest_hop
+model_name_or_path: models/llama3_8b_instruct
+version: v1
+pretrained_embedding_type: sbert
+mm_projector_type: 2-layer-mlp
+template: SET
+
+training:
+  num_train_epochs: 12
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 2
+  learning_rate: 8.0e-6
+  weight_decay: 0.0
+  warmup_ratio: 0.1667
+  lr_scheduler_type: cosine
+  bf16: true
+  tf32: true
+  gradient_checkpointing: true
+  model_max_length: 256
+  tune_mm_mlp_adapter: true
+  mm_use_graph_start_end: false
+  mm_use_graph_patch_token: false
+  lazy_preprocess: true
+  save_strategy: epoch
+  eval_strategy: "no"
+  use_hop: 2
+  sample_neighbor_size: 10
+  use_task: hopqa
+  use_dataset: grbench_hopqa
+  output_dir_template: outputs/baselines/llaga_{domain}_seed{seed}
+
+checkpoint_evaluation:
+  eval_script: eval/eval_grbench_hopqa.py
+  max_new_tokens: 32
+  conv_mode: v1
+  selection_metric: em_only
+  digit8_threshold: 0.10
+  strict_metric: StrictEM
+  audit_metric: ParsedIntegerEM

@@ -1,0 +1,63 @@
+# Matched HopQA adaptation recipe for G-Retriever.
+# Third-party source code is not vendored in this release.
+
+method: G-Retriever
+external_repo: baselines/G-Retriever-main
+dataset: grbench_hopqa
+task: hopqa_shortest_hop
+model_name: graph_llm
+llm_model_name: llama3_8b_instruct
+llm_model_path: models/llama3_8b_instruct
+gnn_model_name: gt
+gnn_num_layers: 4
+gnn_in_dim: 384
+gnn_hidden_dim: 384
+gnn_num_heads: 4
+gnn_dropout: 0.0
+
+training:
+  lr: 8.0e-6
+  weight_decay: 0.05
+  patience: 6
+  batch_size: 1
+  grad_steps: 2
+  num_epochs: 12
+  eval_batch_size: 1
+  max_txt_len: 128
+  max_new_tokens: 32
+  llm_frozen: false
+  gradient_checkpointing: false
+  output_dir_template: outputs/baselines/gretriever_{domain}_seed{seed}
+
+domain_overrides:
+  dblp:
+    desc_nodes: 16
+    max_txt_len: 64
+    grad_steps: 4
+    llm_frozen: true
+    gradient_checkpointing: true
+  biomedical:
+    desc_nodes: 8
+    max_txt_len: 64
+    grad_steps: 8
+    llm_frozen: true
+    gradient_checkpointing: true
+  pubmed:
+    desc_nodes: 8
+    max_txt_len: 64
+    grad_steps: 8
+    llm_frozen: true
+    gradient_checkpointing: true
+  goodreads:
+    desc_nodes: 12
+    max_txt_len: 96
+    grad_steps: 4
+    gradient_checkpointing: true
+
+evaluation:
+  mode: native_generation
+  eval_batch_size: 1
+  max_new_tokens: 32
+  strict_metric: StrictEM
+  audit_metric: ParsedIntegerEM
+  checkpoint_selection: checkpoint_best

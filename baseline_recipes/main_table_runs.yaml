@@ -1,0 +1,44 @@
+# Main-table baseline adaptation matrix.
+
+domains:
+  - dblp_hopqa_train2000_val200_test1000
+  - biomedical_hopqa_train2000_val200_test1000
+  - goodreads_hopqa_train2000_val200_test1000
+  - pubmed_hopqa_train2000_val200_test1000
+
+seeds:
+  - 0
+  - 1
+  - 12138
+
+gretriever:
+  domains:
+    - dblp_hopqa_train2000_val200_test1000
+    - biomedical_hopqa_train2000_val200_test1000
+    - goodreads_hopqa_train2000_val200_test1000
+    - pubmed_hopqa_train2000_val200_test1000
+  seeds: [0, 1, 12138]
+  artifact_template: outputs/baselines/gretriever_{domain_short}_seed{seed}
+  expected_test_count: 1000
+  checkpoint_pattern: grbench_hopqa/*_checkpoint_best.pth
+
+llaga:
+  domains:
+    - dblp_hopqa_train2000_val200_test1000
+    - biomedical_hopqa_train2000_val200_test1000
+    - goodreads_hopqa_train2000_val200_test1000
+    - pubmed_hopqa_train2000_val200_test1000
+  seeds: [0, 1, 12138]
+  artifact_template: outputs/baselines/llaga_{domain_short}_seed{seed}
+  expected_test_count: 1000
+  checkpoint_policy: evaluate_saved_epoch_checkpoints_and_select_em_only
+
+evaluation:
+  primary_metric: StrictEM
+  diagnostics:
+    - ParsedIntegerEM
+    - LegalRate
+    - SingleDigitRate
+    - DominantAnswerRate
+  prediction_format: native_generation
+  strict_success: exact single integer in the HopQA answer set
