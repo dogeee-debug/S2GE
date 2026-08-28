@@ -1,6 +1,9 @@
 # S2GE 作者说明
 
-[English](AUTHORS_NOTES.md) | [简体中文](AUTHORS_NOTES.zh-CN.md)
+<p align="center">
+  <a href="AUTHORS_NOTES.md">English</a> |
+  <a href="AUTHORS_NOTES.zh-CN.md">简体中文</a>
+</p>
 
 ## 研究动机与启发
 

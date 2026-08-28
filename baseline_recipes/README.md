@@ -1,6 +1,9 @@
 # HopQA Baseline Recipes
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+<p align="center">
+  <a href="README.md">English</a> |
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
 
 This directory records the matched HopQA adaptation recipes used for the
 external G-Retriever and LLaGA baselines. The S2GE core release does not vendor

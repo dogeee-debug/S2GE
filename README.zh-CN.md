@@ -1,6 +1,13 @@
 # S2GE 核心源码
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+<p align="center">
+  <a href="README.md">English</a> |
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
+
+<p align="center">
+  <strong>已被 EMNLP 2026 主会录用</strong>
+</p>
 
 <p align="center">
   <img src="assets/S2GE-Icon.png" alt="S2GE 项目图标" width="720">
@@ -331,3 +338,9 @@ checkpoint 和生成输出保留在版本控制之外。
 - [基线配方指南](baseline_recipes/README.zh-CN.md) | [Baseline recipe guide (English)](baseline_recipes/README.md)
 
 如需了解 S2GE 背后的研究动机、接口视角和未来方向，请阅读[作者说明](docs/AUTHORS_NOTES.zh-CN.md)。
+
+## 许可证
+
+本项目采用 [Apache License 2.0](LICENSE) 开源许可证。
+
+Copyright 2026 The S2GE Authors.

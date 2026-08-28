@@ -1,6 +1,13 @@
 # S2GE Core Source
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+<p align="center">
+  <a href="README.md">English</a> |
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
+
+<p align="center">
+  <strong>Accepted to the EMNLP 2026 Main Conference</strong>
+</p>
 
 <p align="center">
   <img src="assets/S2GE-Icon.png" alt="S2GE project icon" width="720">
@@ -363,3 +370,9 @@ creating a separate release bundle for them.
 
 For the motivation, interface perspective, and future directions behind S2GE,
 see the [authors' notes](docs/AUTHORS_NOTES.md).
+
+## License
+
+This project is released under the [Apache License 2.0](LICENSE).
+
+Copyright 2026 The S2GE Authors.

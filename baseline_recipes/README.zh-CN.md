@@ -1,6 +1,9 @@
 # HopQA 基线配方
 
-[English](README.md) | [简体中文](README.zh-CN.md)
+<p align="center">
+  <a href="README.md">English</a> |
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
 
 本目录记录外部 G-Retriever 和 LLaGA 基线使用的匹配 HopQA 适配配方。S2GE
 核心发布版不内置第三方基线仓库、模型权重、checkpoint 或生成输出。这些文件

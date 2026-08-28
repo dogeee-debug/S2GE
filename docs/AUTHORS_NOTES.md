@@ -1,6 +1,9 @@
 # S2GE Authors' Notes
 
-[English](AUTHORS_NOTES.md) | [简体中文](AUTHORS_NOTES.zh-CN.md)
+<p align="center">
+  <a href="AUTHORS_NOTES.md">English</a> |
+  <a href="AUTHORS_NOTES.zh-CN.md">简体中文</a>
+</p>
 
 ## Motivations and Inspirations
 

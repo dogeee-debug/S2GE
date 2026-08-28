@@ -1,6 +1,9 @@
 # Training Configuration Guide
 
-[English](CONFIGURATION.md) | [简体中文](CONFIGURATION.zh-CN.md)
+<p align="center">
+  <a href="CONFIGURATION.md">English</a> |
+  <a href="CONFIGURATION.zh-CN.md">简体中文</a>
+</p>
 
 Configuration filenames use lowercase snake case and follow
 `<domain>_<purpose>_<variant>.yaml`.
